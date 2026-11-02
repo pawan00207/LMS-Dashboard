@@ -1,0 +1,6 @@
+{
+  "name": "The Alexandria Library — LMS",
+  "description": "Editorial-grade real-time Library Management System featuring separate themed portals for Admins, Librarians, and Members, live inventory, loan circulation, fines calculation, and instant audit trails.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

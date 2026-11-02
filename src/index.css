@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-serif: 'Fraunces', 'Playfair Display', Georgia, serif;
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    --bg-canvas: #F6F1E7;
+    --surface-card: #FFFFFF;
+    --surface-subtle: #EFE9DC;
+    --ink-primary: #12372A;
+    --ink-body: #232F2A;
+    --ink-muted: #64746B;
+    --brass-accent: #C8962E;
+    --brick-red: #B84034;
+    --hairline: rgba(18, 55, 42, 0.08);
+  }
+
+  .dark {
+    --bg-canvas: #101513;
+    --surface-card: #18201C;
+    --surface-subtle: #212C26;
+    --ink-primary: #E2ECE6;
+    --ink-body: #CFDBD4;
+    --ink-muted: #859B91;
+    --brass-accent: #D9A642;
+    --brick-red: #E05648;
+    --hairline: rgba(226, 236, 230, 0.1);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--ink-body);
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, .font-serif-display {
+    font-family: var(--font-serif);
+  }
+
+  code, pre, .font-mono-numbers {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom scrollbar for library aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(18, 55, 42, 0.15);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(226, 236, 230, 0.2);
+}
+
+/* Subtle paper texture overlay */
+.paper-texture {
+  background-image: radial-gradient(rgba(18, 55, 42, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+.dark .paper-texture {
+  background-image: radial-gradient(rgba(226, 236, 230, 0.02) 1px, transparent 0);
+  background-size: 24px 24px;
+}
