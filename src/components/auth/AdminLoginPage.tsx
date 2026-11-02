@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import adminLoginImage from '../../assets/images/login_admin_vault_1793601877790.jpg';
 import { Shield, Lock, Mail, ArrowRight, AlertTriangle, Key } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { ForgotPasswordModal } from './ForgotPasswordModal';
@@ -79,7 +80,7 @@ export const AdminLoginPage: React.FC<AdminLoginPageProps> = ({ onOpenAbout }) =
           {/* Left illustration panel: Vault / Control room */}
           <div className="lg:col-span-5 relative hidden lg:flex flex-col justify-between p-8 bg-stone-900 border-r border-stone-800/80 overflow-hidden">
             <img
-              src="/src/assets/images/login_admin_vault_1793601877790.jpg"
+              src={adminLoginImage}
               alt="Archival Vault Control Room"
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover opacity-35 mix-blend-luminosity filter contrast-125"

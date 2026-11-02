@@ -114,19 +114,26 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const logout = () => {
-    if (user) {
+    const activeUser = user;
+    const previousRole = activeUser?.role || 'librarian';
+    setUser(null);
+    navigate(`/${previousRole}/login`);
+
+    try {
+      localStorage.removeItem(SESSION_KEY);
+    } catch (error) {
+      console.error('Failed to clear the saved library session.', error);
+    }
+
+    if (activeUser) {
       supabaseDb.addAuditLog({
-        user_id: user.id,
-        user_name: user.full_name,
-        role: user.role,
+        user_id: activeUser.id,
+        user_name: activeUser.full_name,
+        role: activeUser.role,
         action: 'USER_LOGOUT',
-        details: `${user.full_name} logged out.`,
+        details: `${activeUser.full_name} logged out.`,
       });
     }
-    const previousRole = user?.role || 'librarian';
-    setUser(null);
-    localStorage.removeItem(SESSION_KEY);
-    navigate(`/${previousRole}/login`);
   };
 
   const forgotPassword = async (email: string): Promise<{ success: boolean; message: string }> => {

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { LiveIndicator } from './LiveIndicator';
 import { Search, Moon, Sun, LogOut, Shield, BookOpen, User } from 'lucide-react';
+import libraryCrest from '../../assets/images/library_crest_logo_1793601876410.jpg';
 
 interface HeaderProps {
   onOpenCommandPalette: () => void;
@@ -75,9 +76,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette, onOpenAbou
             }}
             className="flex items-center gap-2.5 text-left group cursor-pointer"
           >
-            <div className="w-8 h-8 rounded bg-[#12372A] text-[#C8962E] flex items-center justify-center font-serif text-lg font-bold shadow-sm ring-1 ring-[#C8962E]/30">
-              A
-            </div>
+            <img
+              src={libraryCrest}
+              alt="Alexandria Library crest"
+              className="w-8 h-8 rounded object-cover shadow-sm ring-1 ring-[#C8962E]/30"
+            />
             <div>
               <span className="font-serif text-lg font-semibold tracking-tight text-[#12372A] dark:text-[#E2ECE6] whitespace-nowrap block leading-none">
                 The Alexandria
@@ -160,10 +163,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCommandPalette, onOpenAbou
               </div>
               <button
                 onClick={logout}
+                aria-label="Log out"
                 title="Sign out of library session"
-                className="p-1.5 text-stone-500 hover:text-rose-600 dark:hover:text-rose-400 rounded transition-colors cursor-pointer"
+                className="inline-flex min-h-9 items-center gap-1.5 rounded px-2 text-xs font-medium text-stone-600 transition-colors hover:bg-rose-50 hover:text-rose-600 dark:text-stone-300 dark:hover:bg-rose-950/40 dark:hover:text-rose-400 cursor-pointer"
               >
                 <LogOut className="w-4 h-4" />
+                <span>Logout</span>
               </button>
             </div>
           )}

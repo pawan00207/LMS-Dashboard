@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import memberLoginImage from '../../assets/images/login_member_reading_1793601877510.jpg';
 import { BookMarked, Heart, Mail, Key, ArrowRight, AlertTriangle, Sparkles } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { ForgotPasswordModal } from './ForgotPasswordModal';
@@ -79,7 +80,7 @@ export const MemberLoginPage: React.FC<MemberLoginPageProps> = ({ onOpenAbout })
           {/* Left panel: Sunlit reading room illustration */}
           <div className="lg:col-span-6 relative hidden lg:flex flex-col justify-between p-8 bg-[#3E342B] overflow-hidden">
             <img
-              src="/src/assets/images/login_member_reading_1793601877510.jpg"
+              src={memberLoginImage}
               alt="Cozy sunlit library armchair reading nook"
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover"

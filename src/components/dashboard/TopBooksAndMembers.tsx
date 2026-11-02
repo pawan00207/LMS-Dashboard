@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { Award, BookOpen, Users } from 'lucide-react';
 import { useLibraryData } from '../../context/LibraryDataContext';
+import libraryCrest from '../../assets/images/library_crest_logo_1793601876410.jpg';
 
 export const TopBooksAndMembers: React.FC = () => {
   const { books, members, transactions } = useLibraryData();
@@ -55,6 +56,16 @@ export const TopBooksAndMembers: React.FC = () => {
           {topBooks.map((book, idx) => (
             <div key={book.id} className="flex items-center justify-between gap-3 text-xs">
               <div className="flex items-center gap-2.5 min-w-0">
+                <img
+                  src={book.cover_url || `https://covers.openlibrary.org/b/isbn/${encodeURIComponent(book.isbn.replace(/-/g, ''))}-M.jpg`}
+                  alt={`${book.title} cover`}
+                  loading="lazy"
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = libraryCrest;
+                  }}
+                  className="w-9 h-12 rounded object-cover bg-stone-100 dark:bg-stone-800 shrink-0"
+                />
                 <span className="w-5 h-5 rounded font-mono text-[10px] bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 flex items-center justify-center shrink-0 font-medium">
                   0{idx + 1}
                 </span>

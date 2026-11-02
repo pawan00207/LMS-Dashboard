@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import librarianLoginImage from '../../assets/images/login_librarian_desk_1793601876370.jpg';
 import { BookOpen, Stamp, Mail, Key, ArrowRight, AlertTriangle } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { ForgotPasswordModal } from './ForgotPasswordModal';
@@ -79,7 +80,7 @@ export const LibrarianLoginPage: React.FC<LibrarianLoginPageProps> = ({ onOpenAb
           {/* Left panel: Warm Oak & Green Banker's Lamp Illustration */}
           <div className="lg:col-span-6 relative hidden lg:flex flex-col justify-between p-8 bg-[#2A1D13] overflow-hidden">
             <img
-              src="/src/assets/images/login_librarian_desk_1793601876370.jpg"
+              src={librarianLoginImage}
               alt="Librarian Circulation Desk"
               referrerPolicy="no-referrer"
               className="absolute inset-0 w-full h-full object-cover opacity-85"

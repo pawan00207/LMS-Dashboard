@@ -154,21 +154,34 @@ export const Sidebar: React.FC<SidebarProps> = ({ onOpenIssue, onOpenReturn, onO
         )}
 
         {user && (
-          <div className="flex items-center gap-2.5 px-2 py-1">
-            <div className="w-7 h-7 rounded-full bg-[#12372A] text-amber-200 flex items-center justify-center font-serif text-xs font-bold shrink-0">
-              {user.full_name[0]}
-            </div>
-            {!isCollapsed && (
-              <div className="min-w-0 flex-1">
-                <div className="text-xs font-medium text-stone-900 dark:text-stone-100 truncate">
-                  {user.full_name}
-                </div>
-                <div className="text-[10px] font-mono text-stone-500 uppercase">
-                  {user.role}
-                </div>
+          <>
+            <div className="flex items-center gap-2.5 px-2 py-1">
+              <div className="w-7 h-7 rounded-full bg-[#12372A] text-amber-200 flex items-center justify-center font-serif text-xs font-bold shrink-0">
+                {user.full_name[0]}
               </div>
-            )}
-          </div>
+              {!isCollapsed && (
+                <div className="min-w-0 flex-1">
+                  <div className="text-xs font-medium text-stone-900 dark:text-stone-100 truncate">
+                    {user.full_name}
+                  </div>
+                  <div className="text-[10px] font-mono text-stone-500 uppercase">
+                    {user.role}
+                  </div>
+                </div>
+              )}
+            </div>
+            <button
+              onClick={logout}
+              aria-label="Log out"
+              title="Sign out of library session"
+              className={`w-full flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-xs text-stone-600 hover:bg-rose-50 hover:text-rose-600 dark:text-stone-300 dark:hover:bg-rose-950/40 dark:hover:text-rose-400 transition-colors cursor-pointer ${
+                isCollapsed ? 'justify-center' : ''
+              }`}
+            >
+              <LogOut className="w-4 h-4 shrink-0" />
+              {!isCollapsed && <span>Logout</span>}
+            </button>
+          </>
         )}
       </div>
     </motion.aside>
